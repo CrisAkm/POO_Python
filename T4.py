@@ -15,16 +15,18 @@ class Empleado(ABC):
             multiplicador = 1
 
         salario_hora = (self.salariob * multiplicador)/ 48
-
-        if horasx <= 9:
+        if horasx < 0:
+            print("Error logico, revisa tus horas extras ingresadas.")
+            horasagregar = 0
+        elif horasx == 0:
+            horasagregar = 0            
+        elif horasx <= 9:
             horasagregar = salario_hora * 2 * horasx
         elif horasx > 9:
             horasagregar = salario_hora * 3 * horasx
             print("Advertencia: Riesgo ante la LFT")
-        elif horasx == 0:
-            pass
-        elif horasx < 0:
-            print("Error logico, revisa tus horas extras ingresadas.")
+        
+        
 
         nominafinal = (self.salariob * multiplicador) + horasagregar + comisiones
         print(f"El salario de {self.nombre} es de ${nominafinal}")
@@ -60,7 +62,7 @@ class Gerente(Empleado):
         print(f"El gerente de la zona {self.zona} ha llegado.")
 
 Luis = Vendedor("Luis", 900, "H", 1000)
-Luis.nomina(1, 0, 100)
+Luis.nomina(1, 90, 100)
 
 Marco = Herrero("Marco", 900, "H", "Lentes y tapones")
 Marco.nomina(1.5, 9, 0)
