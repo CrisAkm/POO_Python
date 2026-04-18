@@ -62,13 +62,18 @@ class Gerente(Empleado):
         print(f"El gerente de la zona {self.zona} ha llegado.")
 
 Luis = Vendedor("Luis", 900, "H", 1000)
-Luis.nomina(1, 90, 100)
+Luis.nomina(1, 0, 100)
 
 Marco = Herrero("Marco", 900, "H", "Lentes y tapones")
 Marco.nomina(1.5, 9, 0)
 
 Teresa = Gerente("Teresa", 4090, "M", "Tlaxcala")
 Teresa.nomina(5, 0, 1000)
+
+empleados = [Luis, Marco, Teresa]
+
+for empleado in empleados:   #Polimorfismo y su uso mas poderoso
+    empleado.iniciar_jordana()
 
 
 
