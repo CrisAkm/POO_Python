@@ -33,8 +33,10 @@ class Taller:
 NameT = input("Bienvenido, ingresa el nombre de tu taller: ")
 
 def main_app():
+
+    T1 = Taller(NameT) #Anteriormente estaba dentro del while, pero lo sacamos para no estar creando objetos en ciclo
     while True:   
-        T1 = Taller(NameT)
+        
 
         try:
             Selection = int(input(f"Presiona 1 para agregar herramienta \nPresiona 2 para leer los datos \nPresiona 3 para salir\n"))
@@ -57,3 +59,7 @@ def main_app():
             continue
 
 main_app()
+
+#Pues, al parecer ya termine el curso, asi que hare un proyecto con flask despues con permanencia de archivos en json
+#para tener mas practicidad y facilidad, es todo por hoy domingo 19 de abril a las 12:27am, termine el curso oficialmente
+#(Segun gemini) pero seguire explorando la programacion orientada a objetos para un SaaS que tengo en mente, chao
