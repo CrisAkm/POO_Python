@@ -1,10 +1,11 @@
-import json
+import sqlite3
 import os
 
-bdd_cliente = "bdd_cliente.json"
+bdd_cliente = "bdd_cliente.json" #Variable suelta, si llegamos a reutilizar la clase en otro programa, habra error
 
 class Cliente:
-    def __init__(self, id, nombre, apaterno, amaterno, telefono, direccion, rfc, nacimiento):
+    def __init__(self, id, nombre, apaterno, amaterno, telefono, direccion, rfc, nacimiento): #XD, le estamos cargando datos que
+        #no deberian estar ahi, es mas funcional o es funcional en un metodo aparte
         self.id = id
         self.nombre = nombre
         self.apaterno = apaterno
@@ -17,7 +18,7 @@ class Cliente:
     def readc(self):
         if os.path.exists(bdd_cliente):
 
-            with open(bdd_cliente, 'r') as archivo:
+            with open(bdd_cliente, 'r') as archivo:  
                 return json.load(archivo)
             
         else:
@@ -35,7 +36,8 @@ class Cliente:
             "rfc": self.rfc,
             "Fecha de nacimiento": self.nacimiento 
         }
-            with open (bdd_cliente, 'a') as archivo:
+            with open (bdd_cliente, 'a') as archivo:  #Rompemos todo el json ya que usamos append, 
+                #literal agregamos dos estructuras al mismo archivo
                 json.dump(nuevo_cliente, archivo, indent=4)
 
             
